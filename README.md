@@ -1,23 +1,20 @@
-its not build yet you can use from src 
 
-## KDBush [![Build Status](https://travis-ci.org/mourner/kdbush.svg?branch=master)](https://travis-ci.org/mourner/kdbush) [![Simply Awesome](https://img.shields.io/badge/simply-awesome-brightgreen.svg)](https://github.com/mourner/projects)
 
 A very fast static spatial index for 2D points based on a flat KD-tree.
-Compared to [RBush](https://github.com/mourner/rbush):
 
 - points only — no rectangles
 - static — you can't add/remove items
 - indexing is 5-8 times faster
 
 ```js
-const index = new KDBush(points);         // make an index
+const index = new KDBushOneDimension(points);         // make an index
 const ids1 = index.range(10, 10, 20, 20); // bbox search - minX, minY, maxX, maxY
 const ids2 = index.within(10, 10, 5);     // radius search - x, y, radius
 ```
 
 ## Install
 
-Install using NPM (`npm install kdbush`) or Yarn (`yarn add kdbush`), then:
+Install using NPM (`npm install kdbush-onedimension`) or Yarn (`yarn add kdbush-onedimension`), then:
 
 ```js
 // import as a ES module
@@ -25,12 +22,6 @@ import KDBush from 'kdbush';
 
 // or require in Node / Browserify
 const KDBush = require('kdbush');
-```
-
-Or use a browser build directly:
-
-```html
-<script src="https://unpkg.com/kdbush@3.0.0/kdbush.min.js"></script>
 ```
 
 ## API
@@ -63,4 +54,21 @@ Finds all items within a given radius from the query point and returns an array 
 
 ```js
 const results = index.within(10, 10, 5).map(id => points[id]);
+```
+
+#### bench test:
+
+```
+###TwoDimension
+memory: 85936.528 KB
+index 1000000 points: 201.450ms
+memory: 86004.216 KB
+10000 small bbox queries: 17.815ms
+10000 small radius queries: 18.959ms
+###OneDimension
+memory: 104597.536 KB  increase because of first function
+index 1000000 points: 29.035ms
+memory: 104611.616 KB
+10000 small bbox queries: 7.380ms
+10000 small radius queries: 6.424ms
 ```

@@ -1,14 +1,14 @@
 {
-  "name": "kdbush",
-  "version": "3.0.0",
-  "description": "A very fast static 2D index for points based on kd-tree.",
+  "name": "kdbush-onedimension",
+  "version": "1.0.0",
+  "description": "A very fast static 2D index for points based on kd-tree. Input points are one dimension array.",
   "module": "src/index.js",
   "main": "kdbush.js",
   "jsdelivr": "kdbush.min.js",
   "unpkg": "kdbush.min.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mourner/kdbush.git"
+    "url": "git://github.com/H91011/kdbush.git"
   },
   "devDependencies": {
     "eslint": "^5.5.0",

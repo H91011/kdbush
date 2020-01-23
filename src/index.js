@@ -6,17 +6,17 @@ import within from './within';
 const defaultGetX = p => p[0];
 const defaultGetY = p => p[1];
 
-export default class KDBush {
+export default class KDBushOneDimension {
     constructor(points, getX = defaultGetX, getY = defaultGetY, nodeSize = 64, ArrayType = Float64Array, justUseOneDimensionalPointArrayPlease) {
         this.nodeSize = nodeSize;
         this.points = points;
 
         const IndexArrayType = points.length < 65536 ? Uint16Array : Uint32Array;
-        
-        var ids;
-        var coords;
 
-        if(justUseOneDimensionalPointArrayPlease){
+        let ids;
+        let coords;
+
+        if (justUseOneDimensionalPointArrayPlease) {
             ids = this.ids = new IndexArrayType(points.length / 2);
             coords = this.coords = new ArrayType(points.length);
         } else {
