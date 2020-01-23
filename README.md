@@ -37,7 +37,7 @@ Creates an index from the given points.
 - `justUseOneDimensionalPointArrayPlease`: **if your point array is one dimensional point array set this option `true` with this option you can not use `getX, getY` callbacks**
 
 ```js
-const index = new KDBush(points, p => p.x, p => p.y, 64, Int32Array);
+const index = new KDBushOneDimension(points, p => p.x, p => p.y, 64, Int32Array);
 ```
 
 #### index.range(minX, minY, maxX, maxY)
