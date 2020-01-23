@@ -60,15 +60,15 @@ const results = index.within(10, 10, 5).map(id => points[id]);
 
 ```
 ###TwoDimension
-memory: 85936.528 KB
-index 1000000 points: 201.450ms
-memory: 86004.216 KB
-10000 small bbox queries: 17.815ms
-10000 small radius queries: 18.959ms
+memory: 85798.464 KB
+index 1000000 points: 190.468ms
+memory: 85866.384 KB
+10000 small bbox queries: 17.985ms
+10000 small radius queries: 19.774ms
 ###OneDimension
-memory: 104597.536 KB  increase because of first function
-index 1000000 points: 29.035ms
-memory: 104611.616 KB
-10000 small bbox queries: 7.380ms
-10000 small radius queries: 6.424ms
+memory: 104452.88 KB  increase because of first function
+index 1000000 points: 101.040ms
+memory: 118575.48 KB
+10000 small bbox queries: 17.311ms
+10000 small radius queries: 16.729ms
 ```
