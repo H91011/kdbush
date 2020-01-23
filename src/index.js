@@ -7,21 +7,30 @@ const defaultGetX = p => p[0];
 const defaultGetY = p => p[1];
 
 export default class KDBush {
-    constructor(points, getX = defaultGetX, getY = defaultGetY, nodeSize = 64, ArrayType = Float64Array) {
+    constructor(points, getX = defaultGetX, getY = defaultGetY, nodeSize = 64, ArrayType = Float64Array, justUseOneDimensionalPointArrayPlease) {
         this.nodeSize = nodeSize;
         this.points = points;
 
         const IndexArrayType = points.length < 65536 ? Uint16Array : Uint32Array;
+        
+        var ids;
+        var coords;
 
-        // store indices to the input array and coordinates in separate typed arrays
-        const ids = this.ids = new IndexArrayType(points.length);
-        const coords = this.coords = new ArrayType(points.length * 2);
+        if(justUseOneDimensionalPointArrayPlease){
+            ids = this.ids = new IndexArrayType(points.length / 2);
+            coords = this.coords = new ArrayType(points.length);
+        } else {
+            ids = this.ids = new IndexArrayType(points.length);
+            coords = this.coords = new ArrayType(points.length * 2);
 
-        for (let i = 0; i < points.length; i++) {
-            ids[i] = i;
-            coords[2 * i] = getX(points[i]);
-            coords[2 * i + 1] = getY(points[i]);
+            for (let i = 0; i < points.length; i++) {
+                ids[i] = i;
+                coords[2 * i] = getX(points[i]);
+                coords[2 * i + 1] = getY(points[i]);
+            }
         }
+        // store indices to the input array and coordinates in separate typed arrays
+
 
         // kd-sort both arrays for efficient search (see comments in sort.js)
         sort(ids, coords, nodeSize, 0, ids.length - 1, 0);
