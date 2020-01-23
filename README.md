@@ -18,10 +18,10 @@ Install using NPM (`npm install kdbush-onedimension`) or Yarn (`yarn add kdbush-
 
 ```js
 // import as a ES module
-import KDBush from 'kdbush';
+import KDBushOneDimension from 'kdbush-onedimension';
 
 // or require in Node / Browserify
-const KDBush = require('kdbush');
+const KDBushOneDimension = require('kdbush-onedimension');
 ```
 
 ## API
