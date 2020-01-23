@@ -41,6 +41,7 @@ Creates an index from the given points.
 - `getX`, `getY`: Functions to get `x` and `y` from an input point. By default, it assumes `[x, y]` format.
 - `nodeSize`: Size of the KD-tree node, `64` by default. Higher means faster indexing but slower search, and vise versa.
 - `arrayType`: Array type to use for storing coordinate values. `Float64Array` by default, but if your coordinates are integer values, `Int32Array` makes things a bit faster.
+- `justUseOneDimensionalPointArrayPlease` if your point array is one dimensional point array set this option `true` 
 
 ```js
 const index = new KDBush(points, p => p.x, p => p.y, 64, Int32Array);
