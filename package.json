@@ -1,6 +1,6 @@
 {
   "name": "kdbush-onedimension",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A very fast static 2D index for points based on kd-tree. Input points are one dimension array.",
   "module": "src/index.js",
   "main": "kdbush.js",

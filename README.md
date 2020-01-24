@@ -7,7 +7,8 @@ A very fast static spatial index for 2D points based on a flat KD-tree.
 - indexing is 5-8 times faster
 
 ```js
-const index = new KDBushOneDimension(points);         // make an index
+const points= [55,20,20,10,10,90,90,56,56,58,5,4]
+const index = new KDBushOneDimension(points, undefined, undefined,10,Float64Array, true);         // make an index
 const ids1 = index.range(10, 10, 20, 20); // bbox search - minX, minY, maxX, maxY
 const ids2 = index.within(10, 10, 5);     // radius search - x, y, radius
 ```
