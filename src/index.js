@@ -17,8 +17,12 @@ export default class KDBushOneDimension {
         let coords;
 
         if (justUseOneDimensionalPointArrayPlease) {
-            ids = this.ids = new IndexArrayType(points.length / 2);
-            coords = this.coords = new ArrayType(points.length);
+            const idArr = [];
+            for (let i = 0; i < points.length / 2; i++) {
+                idArr[i] = i;
+            }
+            this.ids =   ids = new IndexArrayType(idArr);
+            coords =   this.coords = new ArrayType(points);
         } else {
             ids = this.ids = new IndexArrayType(points.length);
             coords = this.coords = new ArrayType(points.length * 2);

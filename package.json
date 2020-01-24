@@ -1,6 +1,6 @@
 {
   "name": "kdbush-onedimension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A very fast static 2D index for points based on kd-tree. Input points are one dimension array.",
   "module": "src/index.js",
   "main": "kdbush.js",
@@ -20,7 +20,7 @@
     "tape": "^4.9.1"
   },
   "scripts": {
-    "pretest": "eslint src test.js bench.js rollup.config.js",
+
     "test": "tape -r esm test.js",
     "bench": "node -r esm bench.js",
     "build": "rollup -c",
